@@ -93,17 +93,10 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: -2;
   animation-name: fadeIn, fadeOut;
-  animation-delay: 0s, 4s;
-  animation-duration: 3s;
+  animation-delay: 0s, 4.5s;
+  animation-duration: 3s, 0.75s;
   animation-fill-mode: forwards;
-}
-
-.moonsContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .planetContainer {
@@ -129,7 +122,6 @@ html, body {
   height: 21vh;
   background-color: black;
   position: absolute;
-  z-index: 2;
   border-radius: 50%;
   animation: eclipse 4s linear;
 }
@@ -142,26 +134,36 @@ html, body {
   background-color: black;
 }
 
-.moonsContainer {
-  z-index: 4;
-}
-
 .moonContainer {
   position: absolute;
-  height: 3vh;
-  width: 3vh;
+  height: 2vh;
+  width: 2vh;
   border-radius: 50%;
   background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .moon {
-  height: 1.3vh;
-  width: 1.3vh;
+  height: 1vh;
+  width: 1vh;
   border-radius: 50%;
   background-color: white;
+}
+
+.moonEclipse {
+  width: 3vh;
+  height: 3vh;
+  background-color: black;
+  position: absolute;
+  border-radius: 50%;
+  animation: eclipse 4s linear;
+  animation-delay: 2s;
+  transform: translateX(100%) translateY(100%);
+  animation-fill-mode: forwards;
 }
 
 .innerMoonA {
@@ -199,7 +201,6 @@ html, body {
   position: absolute;
   border-radius: 50%;
   outline: 1px solid white;
-  z-index: 3;
 }
 
 .ring.inner {
