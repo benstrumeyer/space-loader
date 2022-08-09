@@ -1,0 +1,23 @@
+html, body {
+  font-family: sans-serif;
+  margin: 0;
+  height: 100%;
+}
+
+.planet {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  outline: 1px dotted red;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.moon {
+  width: 50px;
+  height: 50px;
+  background: black;
+  border-radius: 50%;
+  transform: rotate(270deg) translateX(10vw);
+}
+
+/*# sourceMappingURL=/src.f10117fe.css.map */

@@ -1,0 +1,2 @@
+body,html{font-family:sans-serif;margin:0;height:100%;background-color:#00f}.planet{position:absolute;top:50%;left:50%;outline:1px dotted red;transform:translate3d(-50%,-50%,0)}.moon,.planet{width:50px;height:50px}.moon{background:#000;border-radius:50%;transform:rotate(270deg) translateX(10vw)}
+/*# sourceMappingURL=/styles.c63243b9.css.map */
