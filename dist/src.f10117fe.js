@@ -214,7 +214,7 @@ function animate() {
   }, 3000);
   setTimeout(function () {
     background.classList.add("loaderFadeOutAnimation");
-  }, 6000);
+  }, 5500);
 }
 
 button.addEventListener('click', animate);

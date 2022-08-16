@@ -18,7 +18,7 @@ function animate() {
 
   setTimeout(() => {
     background.classList.add("loaderFadeOutAnimation");
-  }, 6000);
+  }, 5500);
 
 }
 
