@@ -6,9 +6,7 @@ const background = document.querySelector(".background")!;
 const button = document.querySelector(".button")!;
 
 function animate() {
-  setTimeout(() => {
-    eclipse.classList.add("planetAnimation");
-  }, 1);
+  eclipse.classList.add("planetAnimation");
 
   setTimeout(() => {
     moons.forEach(moon => {

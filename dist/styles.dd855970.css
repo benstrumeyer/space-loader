@@ -75,6 +75,16 @@ html, body {
   }
 }
 
+@keyframes planetEclipse {
+  from {
+    transform: translateX(100%) translateY(100%);
+  }
+  to {
+    transform: translateX(15%) translateY(15%);
+  }
+}
+
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -124,29 +134,30 @@ html, body {
 
 .planet {
   position: absolute;
-  border-radius: 50%;
-  background-color: white;
-  height: 50%;
-  width: 50%;
-  border: none;
+  width: 68%;
+  height: 68%;
+  filter: contrast(640%) brightness(400%);
+  background: 
+	radial-gradient(circle at 51% 50%, rgba(255,255,255,1), rgba(0,0,0,1)),
+	url("data:image/svg+xml,%3Csvg viewBox='0 0 318 318' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='5.23' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  overflow: hidden;
 }
 
 .planetEclipse {
-  display: block;
-  content: "";
-  width: 105%;
-  height: 105%;
-  background-color: black;
+  width: 80%;
+  height: 80%;
   position: absolute;
+  transform: translateX(135%) translateY(135%);
+  filter: contrast(130%) brightness(400%) invert(100%);
+  background: 
+	radial-gradient(circle at 51% 50%, rgba(255,255,255,1), rgba(0,0,0,1)),
+  url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='5.23' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   border-radius: 50%;
-  transform: translateX(100%) translateY(100%);
 }
-
+  
 .planetAnimation {
-  animation: eclipse 4s linear;
+  animation: planetEclipse 4s linear;
   animation-fill-mode: forwards;
-  top: -2.5%;
-  left: -2.5%;
 }
 
 .moonContainer {

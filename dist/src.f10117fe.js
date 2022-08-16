@@ -204,9 +204,7 @@ var background = document.querySelector(".background");
 var button = document.querySelector(".button");
 
 function animate() {
-  setTimeout(function () {
-    eclipse.classList.add("planetAnimation");
-  }, 1);
+  eclipse.classList.add("planetAnimation");
   setTimeout(function () {
     moons.forEach(function (moon) {
       moon.classList.add("moonAnimation");
