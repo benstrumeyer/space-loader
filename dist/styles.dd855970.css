@@ -80,7 +80,7 @@ html, body {
     transform: translateX(100%) translateY(100%);
   }
   to {
-    transform: translateX(15%) translateY(15%);
+    transform: translateX(5%) translateY(5%);
   }
 }
 
@@ -144,8 +144,8 @@ html, body {
 }
 
 .planetEclipse {
-  width: 80%;
-  height: 80%;
+  width: 90%;
+  height: 90%;
   position: absolute;
   transform: translateX(135%) translateY(135%);
   filter: contrast(130%) brightness(400%) invert(100%);
