@@ -1,9 +1,25 @@
 import "./styles.css";
 
-// document.getElementById("app").innerHTML = `
-// <h1>Hello Vanilla!</h1>
-// <div>
-//   We use the same configuration as Parcel to bundle this sandbox, you can find more
-//   info about Parcel 
-//   <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
-// </div>`;
+const eclipse = document.querySelector(".planetEclipse")!;
+const moons = document.querySelectorAll(".moonEclipse");
+const background = document.querySelector(".background")!;
+const button = document.querySelector(".button")!;
+
+function animate() {
+  setTimeout(() => {
+    eclipse.classList.add("planetAnimation");
+  }, 1);
+
+  setTimeout(() => {
+    moons.forEach(moon => {
+      moon.classList.add("moonAnimation");
+    })
+  }, 3000);
+
+  setTimeout(() => {
+    background.classList.add("loaderFadeOutAnimation");
+  }, 6000);
+
+}
+
+button.addEventListener('click', animate);

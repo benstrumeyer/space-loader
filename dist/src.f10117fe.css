@@ -1,23 +1,246 @@
 html, body {
   font-family: sans-serif;
   margin: 0;
+  background-color: black;
+}
+
+:root {
+  --moon-animation-delay: 2s;
+  --eclipse-transformation: translateX(100%) translateY(100%);
+  --orbit-speed: 20s;
+  --orbit-radius: 22vh;
+}
+
+@keyframes innerOrbitA {
+  from {
+    transform: rotate(200deg) translateX(calc(var(--orbit-radius) * .78)); 
+  }
+  to {
+    transform: rotate(-160deg) translateX(calc(var(--orbit-radius) * .78));
+  }
+}
+
+@keyframes innerOrbitB {
+  from {
+    transform: rotate(20deg) translateX(calc(var(--orbit-radius) * .78)); 
+  }
+  to {
+    transform: rotate(-340deg) translateX(calc(var(--orbit-radius) * .78));
+  }
+}
+
+@keyframes middleOrbitA {
+  from {
+    transform: rotate(-45deg) translateX(calc(var(--orbit-radius) * .89)); 
+  }
+  to {
+    transform: rotate(315deg) translateX(calc(var(--orbit-radius) * .89));
+  }
+}
+
+@keyframes middleOrbitB {
+  from {
+    transform: rotate(-225deg) translateX(calc(var(--orbit-radius) * .89)); 
+  }
+  to {
+    transform: rotate(135deg) translateX(calc(var(--orbit-radius) * .89));
+  }
+}
+
+
+@keyframes outerOrbitA {
+  from {
+    transform: rotate(240deg) translateX(var(--orbit-radius)); 
+  }
+  to {
+    transform: rotate(-120deg) translateX(var(--orbit-radius));
+  }
+}
+
+@keyframes outerOrbitB {
+  from {
+    transform: rotate(60deg) translateX(var(--orbit-radius)); 
+  }
+  to {
+    transform: rotate(-300deg) translateX(var(--orbit-radius));
+  }
+}
+
+@keyframes eclipse {
+  from {
+    transform: translateX(100%) translateY(100%);
+  }
+  to {
+    transform: translateX(0%) translateY(0%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.background {
   height: 100%;
+  width: 100%;
+  background: url('/star-map.a64bc219.svg');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  position: relative;
+  height: calc(var(--orbit-radius) * 2);
+  width: calc(var(--orbit-radius) * 2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: fadeIn;
+  animation-delay: 0s;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+.loaderFadeOutAnimation {
+  animation: fadeOut 1s linear;
+  animation-fill-mode: forwards;
 }
 
 .planet {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  outline: 1px dotted red;
-  transform: translate3d(-50%, -50%, 0);
+  border-radius: 50%;
+  background-color: white;
+  height: 50%;
+  width: 50%;
+  border: none;
+}
+
+.planetEclipse {
+  display: block;
+  content: "";
+  width: 105%;
+  height: 105%;
+  background-color: black;
+  position: absolute;
+  border-radius: 50%;
+  transform: translateX(100%) translateY(100%);
+}
+
+.planetAnimation {
+  animation: eclipse 4s linear;
+  animation-fill-mode: forwards;
+  top: -2.5%;
+  left: -2.5%;
+}
+
+.moonContainer {
+  position: absolute;
+  height: 2vh;
+  width: 2vh;
+  border-radius: 50%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .moon {
-  width: 50px;
-  height: 50px;
-  background: black;
+  height: 1vh;
+  width: 1vh;
   border-radius: 50%;
-  transform: rotate(270deg) translateX(10vw);
+  background-color: white;
+  z-index: 1;
+}
+
+.moonEclipse {
+  display: block;
+  content: "";
+  width: 1vh;
+  height: 1vh;
+  background-color: white;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.moonAnimation {
+  animation: eclipse 3s linear;
+  transform: var(--eclipse-transformation);
+  animation-fill-mode: forwards;
+  background-color: black;
+}
+
+.innerMoonA {
+  animation: innerOrbitA var(--orbit-speed) infinite linear;
+  transition-property: all;
+}
+
+.innerMoonB {
+  animation: innerOrbitB var(--orbit-speed) infinite linear;
+  transition-property: all;
+}
+
+
+.middleMoonA {
+  animation: middleOrbitA var(--orbit-speed) infinite linear;
+  transition-property: all;
+}
+
+.middleMoonB {
+  animation: middleOrbitB var(--orbit-speed) infinite linear;
+  transition-property: all;
+}
+
+.outerMoonA {
+  animation: outerOrbitA calc(var(--orbit-speed) * 1.5) infinite linear;
+  transition-property: all;
+}
+
+.outerMoonB {
+  animation: outerOrbitB calc(var(--orbit-speed) * 1.5) infinite linear;
+  transition-property: all;
+}
+
+.ring {
+  position: absolute;
+  display: flex;
+  border-radius: 50%;
+  outline: 1px solid white;
+}
+
+.ring.inner {
+  height: 78%;
+  width: 78%;
+}
+
+.ring.middle {
+  height: 89%;
+  width: 89%;
+}
+.ring.outer {
+  height: 100%;
+  width: 100%;
+}
+
+.button {
+  margin-top: 6vh;
 }
 
 /*# sourceMappingURL=/src.f10117fe.css.map */

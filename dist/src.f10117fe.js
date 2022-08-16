@@ -189,20 +189,35 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.ts":[function(require,module,exports) {
+},{"./../images/star-map.svg":[["star-map.a64bc219.svg","images/star-map.svg"],"images/star-map.svg"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-require("./styles.css"); // document.getElementById("app").innerHTML = `
-// <h1>Hello Vanilla!</h1>
-// <div>
-//   We use the same configuration as Parcel to bundle this sandbox, you can find more
-//   info about Parcel 
-//   <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
-// </div>`;
+require("./styles.css");
+
+var eclipse = document.querySelector(".planetEclipse");
+var moons = document.querySelectorAll(".moonEclipse");
+var background = document.querySelector(".background");
+var button = document.querySelector(".button");
+
+function animate() {
+  setTimeout(function () {
+    eclipse.classList.add("planetAnimation");
+  }, 1);
+  setTimeout(function () {
+    moons.forEach(function (moon) {
+      moon.classList.add("moonAnimation");
+    });
+  }, 3000);
+  setTimeout(function () {
+    background.classList.add("loaderFadeOutAnimation");
+  }, 6000);
+}
+
+button.addEventListener('click', animate);
 },{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -231,7 +246,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54828" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54171" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
